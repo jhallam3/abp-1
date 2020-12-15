@@ -12,7 +12,10 @@ Find ***YourProjectName*EntityFrameworkCoreModule** class inside the `.EntityFra
 
 ## UseMySQL()
 
-Find `UseSqlServer()` calls in your solution, replace with `UseMySQL()`. Check the following files:
+Find `UseSqlServer()` calls in your solution, replace with `.UseMySql(configuration.GetConnectionString("Default").ToString(), new MySqlServerVersion(new System.Version(8,0,21)), mySqlOptions => mySqlOptions
+                             .CharSetBehavior(CharSetBehavior.NeverAppend));`
+
+Check the following files:
 
 * *YourProjectName*EntityFrameworkCoreModule.cs inside the `.EntityFrameworkCore` project.
 * *YourProjectName*MigrationsDbContextFactory.cs inside the `.EntityFrameworkCore.DbMigrations` project.
